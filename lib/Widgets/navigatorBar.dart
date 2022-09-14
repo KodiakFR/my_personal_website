@@ -12,21 +12,23 @@ class NavigatorBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.max,
       children: [
-        addNavigationBar('Home', context),
-        addNavigationBar('About me', context),
-        addNavigationBar('Projects', context),
-        addNavigationBar('Contact', context)
+        addNavigationBar('Home', context, '/home'),
+        addNavigationBar('About me', context, '/aboutMe'),
+        addNavigationBar('Projects', context, '/home'),
+        addNavigationBar('Contact', context, '/home')
       ],
     );
   }
 
-  Padding addNavigationBar(String name, BuildContext context) {
+  Padding addNavigationBar(String name, BuildContext context, String route) {
     const double sizePadding = 30;
     if(name == index){
       return Padding(
       padding: const EdgeInsets.symmetric(horizontal: sizePadding),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, route);
+        },
         child: Text(name, style: Theme.of(context).textTheme.headline3),
       ),
     );
@@ -34,7 +36,9 @@ class NavigatorBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: sizePadding),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, route);
+        },
         child: Text(name, style: Theme.of(context).textTheme.headline4),
       ),
     );

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/Widgets/navigatorBar.dart';
+import 'package:my_personal_website/Screens/Index.dart';
 
-class Index extends StatelessWidget {
-  const Index({Key? key}) : super(key: key);
+import '../Widgets/NavigatorBar.dart';
+
+class AboutMe extends StatelessWidget {
+  const AboutMe({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const String index = 'Home';
+    const String index = 'About me';
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         //Computer screen
@@ -19,10 +21,10 @@ class Index extends StatelessWidget {
         } else {
           return Scaffold(
             body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Center(child: Text("Home"))],
+              children: [],
             ),
             bottomNavigationBar: BottomNavigationBar(
+              currentIndex: 1,
               onTap: (value) {
                 switch (value) {
                   case 0: {

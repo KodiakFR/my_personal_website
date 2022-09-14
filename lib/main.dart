@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:my_personal_website/Screens/about_me.dart';
 
 import 'Screens/Index.dart';
 
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        "/home": (context)=> const Index(),
+        "/aboutMe" :(context) => const AboutMe()
+      },
       title: 'Maxime Braud',
       theme: ThemeData(
         iconTheme: const IconThemeData(color: Colors.white),
