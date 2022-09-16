@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_personal_website/Bloc/index_navigator_bloc.dart';
 
 PageController pageController = PageController();
 
