@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         textTheme:   TextTheme(
             headline1: TextStyle(
               color: Colors.blue[300]
+              
             ),
              headline2: TextStyle(
               color: Colors.blue[400]
