@@ -86,15 +86,15 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Hello I\'m Maxime ! ',
-                      style: Theme.of(context).textTheme.headline1,
+                      'Hello I\'m Maxime! ',
+                      style: Theme.of(context).textTheme.headline1, textAlign: TextAlign.center
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
                       'Welcome in my website',
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.headline2,textAlign: TextAlign.center
                     ),
                     const SizedBox(
                       height: 20,
