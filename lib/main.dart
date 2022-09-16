@@ -17,13 +17,19 @@ class MyApp extends StatelessWidget {
       title: 'Maxime Braud',
       theme: ThemeData(
         iconTheme: const IconThemeData(color: Colors.white),
-        canvasColor: const Color.fromARGB(255, 35, 89, 133),
-        textTheme:  const TextTheme(
-            headline4: TextStyle(
-          color: Colors.white,
+        canvasColor: const Color.fromARGB(255, 65, 115, 156),
+        textTheme:   TextTheme(
+            headline1: TextStyle(
+              color: Colors.blue[300]
+            ),
+             headline2: TextStyle(
+              color: Colors.blue[400]
+            ),
+            headline5: TextStyle(
+              color: Colors.blue[900]
+            )       
         ),
-        headline3: TextStyle(color: Colors.red, decoration: TextDecoration.underline)
-        ),
+        
         primarySwatch: Colors.blue,
       ),
       home: const CustomPageController(),

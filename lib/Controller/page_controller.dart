@@ -80,7 +80,7 @@ class _CustomPageControllerState extends State<CustomPageController> {
         } else {
           return Scaffold(
               appBar: AppBar(
-                backgroundColor: const Color.fromARGB(255, 35, 89, 133),
+                backgroundColor: const Color.fromARGB(255, 65, 115, 156),
                 elevation: 0,
                 actions: [
                   TextButton(
