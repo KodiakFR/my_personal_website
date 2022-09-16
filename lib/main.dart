@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:my_personal_website/Controller/page_controller.dart';
 import 'package:my_personal_website/Screens/about_me.dart';
 
-import 'Screens/Index.dart';
+import 'Screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {
-        "/home": (context)=> const Index(),
-        "/aboutMe" :(context) => const AboutMe()
-      },
       title: 'Maxime Braud',
       theme: ThemeData(
         iconTheme: const IconThemeData(color: Colors.white),
@@ -31,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: const Index(),
+      home: const CustomPageController(),
     );
   }
 }
