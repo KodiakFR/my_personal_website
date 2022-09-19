@@ -1,14 +1,11 @@
-import 'dart:convert';
 import '../Entity/repo_entity.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class RepoServices {
   Future<All> fetchRepos() async {
-    final reponse = await http
-        .get(Uri.parse('https://api.github.com/users/KodiakFR/repos'));
+    final reponse = await Dio().get('https://api.github.com/users/KodiakFR/repos');
     if (reponse.statusCode == 200) {
-      print(reponse.body);
-      return All.fromJson(json.decode(reponse.body));
+      return All.fromJson(reponse.data);
     } else {
       throw Exception('Failed to fetch repos!');
     }

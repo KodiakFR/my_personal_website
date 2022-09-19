@@ -22,7 +22,7 @@ class AboutMe extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 50),
                       child: CircleAvatar(
-                        backgroundImage: AssetImage('lib/IMG/ProfilImage.png'),
+                        backgroundImage: const AssetImage('lib/IMG/ProfilImage.png'),
                         radius: MediaQuery.of(context).size.width / 6,
                       ),
                     ),
@@ -50,13 +50,13 @@ class AboutMe extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 50),
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('lib/IMG/ProfilImage.png'),
+                    backgroundImage: const AssetImage('lib/IMG/ProfilImage.png'),
                     radius: MediaQuery.of(context).size.width / 8,
                   ),
                 ),
                 const Flexible(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
                       '"Hello, my name is Maxime Braud. I live in Toulouse, France. I worked for 10 years in the aeronautics sector. I did a professional reconversion to become a developer. I love my new job! This feeling is really important for me. I have been using Flutter since October 2021. I learned this technology myself for a personal project and I really enjoyed it. Now I want to work in this technology in a company to continue to train and learn. You will find on this site all my personal projects. You can write me on LinkedIn or through my Contact page."',
                       style:

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_personal_website/Entity/repo_entity.dart';
 import 'package:my_personal_website/Services/repo_services.dart';
+import 'package:url_launcher/link.dart';
 
 import '../Entity/repo_entity.dart';
 
@@ -28,7 +30,7 @@ class _ProjectsState extends State<Projects> {
         padding: const EdgeInsets.all(0.8),
         child: Container(
           child: FutureBuilder<All>(
-            future: futureRepo,
+            future: _repoServices.fetchRepos(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return CircularProgressIndicator();
@@ -54,12 +56,29 @@ class _ProjectsState extends State<Projects> {
                       sliver: SliverGrid.count(
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
-                        crossAxisCount: 2,
+                        crossAxisCount: 4,
                         children: repos
                             .map(
                               (r) => Card(
+                                elevation: 10,
                                 child: Column(
-                                  
+                                  children: [
+                                    Text(
+                                      r.name,
+                                      style:
+                                          Theme.of(context).textTheme.headline5,
+                                    ),
+                                    Text(r.description),
+                                    Link(
+                                      target: LinkTarget.blank,
+                                      uri: Uri.parse(r.htmlUrl),
+                                      builder: (context, followLink) =>
+                                          IconButton(
+                                              onPressed: followLink,
+                                              icon: const Icon(
+                                                  FontAwesomeIcons.github),color: Colors.black,),
+                                    ),
+                                  ],
                                 ),
                               ),
                             )
@@ -71,7 +90,6 @@ class _ProjectsState extends State<Projects> {
               } else {
                 return Center(child: CircularProgressIndicator());
               }
-              ;
             },
           ),
         ),

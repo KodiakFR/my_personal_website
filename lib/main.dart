@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/Controller/page_controller.dart';
-import 'package:my_personal_website/Screens/about_me.dart';
-
-import 'Screens/home.dart';
 
 void main() {
   runApp(const MyApp());
