@@ -33,9 +33,13 @@ class _ProjectsState extends State<Projects> {
             future: _repoServices.fetchRepos(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (snapshot.hasError) {
-                return Center(child: Text('Error!'));
+                return Center(
+                    child: Text(
+                  'Error!',
+                  style: Theme.of(context).textTheme.headline3,
+                ));
               } else if (snapshot.hasData) {
                 List<RepoEntity> repos = [];
                 for (int i = 0; i < snapshot.data!.repos.length; i++) {
@@ -45,6 +49,7 @@ class _ProjectsState extends State<Projects> {
                       htmlUrl: snapshot.data!.repos[i].htmlUrl,
                       stargazersCount: snapshot.data!.repos[i].stargazersCount,
                       description: snapshot.data!.repos[i].description,
+                      language: snapshot.data!.repos[i].language,
                     ),
                   );
                 }
@@ -60,13 +65,17 @@ class _ProjectsState extends State<Projects> {
                         children: repos
                             .map(
                               (r) => Card(
+                                color: const Color.fromARGB(255, 208, 214, 223),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30)),
                                 elevation: 10,
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
                                       r.name,
                                       style:
-                                          Theme.of(context).textTheme.headline5,
+                                          Theme.of(context).textTheme.headline4,
                                     ),
                                     Text(r.description),
                                     Link(
@@ -74,9 +83,11 @@ class _ProjectsState extends State<Projects> {
                                       uri: Uri.parse(r.htmlUrl),
                                       builder: (context, followLink) =>
                                           IconButton(
-                                              onPressed: followLink,
-                                              icon: const Icon(
-                                                  FontAwesomeIcons.github),color: Colors.black,),
+                                        onPressed: followLink,
+                                        icon:
+                                            const Icon(FontAwesomeIcons.github),
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -88,7 +99,7 @@ class _ProjectsState extends State<Projects> {
                   ],
                 );
               } else {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
             },
           ),

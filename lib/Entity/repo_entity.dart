@@ -3,12 +3,14 @@ class RepoEntity {
   String htmlUrl;
   int stargazersCount;
   String description;
+  String? language;
 
   RepoEntity({
     required this.name,
     required this.htmlUrl,
     required this.stargazersCount,
     required this.description,
+    required this.language
   });
 
   factory RepoEntity.fromJson(Map<String, dynamic> json) {
@@ -17,6 +19,7 @@ class RepoEntity {
       htmlUrl: json['html_url'],
       stargazersCount: json['stargazers_count'],
       description: json['description'],
+      language: json['language']
     );
   }
 }
