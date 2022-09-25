@@ -2,7 +2,7 @@ class RepoEntity {
   String name;
   String htmlUrl;
   int stargazersCount;
-  String description;
+  String? description;
   String? language;
 
   RepoEntity({

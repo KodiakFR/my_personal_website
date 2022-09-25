@@ -65,30 +65,53 @@ class _ProjectsState extends State<Projects> {
                         children: repos
                             .map(
                               (r) => Card(
-                                color: const Color.fromARGB(255, 208, 214, 223),
+                                color: const Color.fromRGBO(208, 214, 223, 0.8),
+                                shadowColor: Colors.black,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30)),
-                                elevation: 10,
+                                elevation: 20,
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Text(
-                                      r.name,
-                                      style:
-                                          Theme.of(context).textTheme.headline4,
+                                    SizedBox(
+                                      height: 100,
+                                      child: Text(
+                                        r.name,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline4,
+                                      ),
                                     ),
-                                    Text(r.description),
+                                    if (r.description != null)
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 30),
+                                        child: Text(
+                                          r.description!,
+                                          textAlign: TextAlign.justify,
+                                        ),
+                                      ),
                                     Link(
                                       target: LinkTarget.blank,
                                       uri: Uri.parse(r.htmlUrl),
                                       builder: (context, followLink) =>
                                           IconButton(
                                         onPressed: followLink,
-                                        icon:
-                                            const Icon(FontAwesomeIcons.github),
+                                        icon: const Icon(
+                                          FontAwesomeIcons.github,
+                                          size: 45,
+                                        ),
                                         color: Colors.black,
                                       ),
                                     ),
+                                    if (r.language != null &&
+                                        r.language != 'C++')
+                                      Text('Language: ' + r.language!)
+                                    else if (r.language == 'C++')
+                                      Text('Language : Flutter')
+                                    else
+                                      const Text('')
                                   ],
                                 ),
                               ),
