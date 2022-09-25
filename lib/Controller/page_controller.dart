@@ -19,7 +19,7 @@ class _CustomPageControllerState extends State<CustomPageController> {
   @override
   Widget build(BuildContext context) {
     final PageController pageController =
-        PageController(initialPage: 3, keepPage: true);
+        PageController(initialPage: 2, keepPage: true);
     return LayoutBuilder(
       builder: (context, constraints) {
         // phone screen

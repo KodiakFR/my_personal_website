@@ -26,9 +26,9 @@ class _ProjectsState extends State<Projects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(0.8),
-        child: Container(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(0.8),
           child: FutureBuilder<All>(
             future: _repoServices.fetchRepos(),
             builder: (context, snapshot) {
@@ -92,26 +92,35 @@ class _ProjectsState extends State<Projects> {
                                           textAlign: TextAlign.justify,
                                         ),
                                       ),
-                                    Link(
-                                      target: LinkTarget.blank,
-                                      uri: Uri.parse(r.htmlUrl),
-                                      builder: (context, followLink) =>
-                                          IconButton(
-                                        onPressed: followLink,
-                                        icon: const Icon(
-                                          FontAwesomeIcons.github,
-                                          size: 45,
-                                        ),
-                                        color: Colors.black,
+                                    SizedBox(
+                                      height: 100,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Link(
+                                            target: LinkTarget.blank,
+                                            uri: Uri.parse(r.htmlUrl),
+                                            builder: (context, followLink) =>
+                                                IconButton(
+                                              onPressed: followLink,
+                                              icon: const Icon(
+                                                FontAwesomeIcons.github,
+                                                size: 45,
+                                              ),
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                              if (r.language != null &&
+                                          r.language != 'C++')
+                                        Text('Language: ' + r.language!)
+                                      else if (r.language == 'C++')
+                                        Text('Language : Flutter')
+                                      else
+                                        const Text('')
+                                        ],
                                       ),
                                     ),
-                                    if (r.language != null &&
-                                        r.language != 'C++')
-                                      Text('Language: ' + r.language!)
-                                    else if (r.language == 'C++')
-                                      Text('Language : Flutter')
-                                    else
-                                      const Text('')
+                                
                                   ],
                                 ),
                               ),
@@ -122,7 +131,7 @@ class _ProjectsState extends State<Projects> {
                   ],
                 );
               } else {
-                return const Center(child: CircularProgressIndicator());
+                return const CircularProgressIndicator();
               }
             },
           ),
