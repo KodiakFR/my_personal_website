@@ -5,8 +5,6 @@ import 'package:my_personal_website/Extentions/responsive.dart';
 import 'package:my_personal_website/Services/repo_services.dart';
 import 'package:url_launcher/link.dart';
 
-import '../Entity/repo_entity.dart';
-
 RepoServices _repoServices = RepoServices();
 
 class Projects extends StatefulWidget {
