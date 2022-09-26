@@ -61,7 +61,7 @@ class _ProjectsState extends State<Projects> {
                       sliver: SliverGrid.count(
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
-                        crossAxisCount: 4,
+                        crossAxisCount: 5,
                         children: repos
                             .map(
                               (r) => Card(
@@ -80,7 +80,7 @@ class _ProjectsState extends State<Projects> {
                                         r.name,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline4,
+                                            .headline5,
                                       ),
                                     ),
                                     if (r.description != null)
@@ -91,11 +91,17 @@ class _ProjectsState extends State<Projects> {
                                           r.description!,
                                           textAlign: TextAlign.justify,
                                         ),
-                                      ),
+                                      )
+                                    else
+                                      const Padding(
+                                          padding:  EdgeInsets.symmetric(
+                                              horizontal: 30),
+                                          child: Text('')),
                                     SizedBox(
                                       height: 100,
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Link(
                                             target: LinkTarget.blank,
@@ -110,17 +116,16 @@ class _ProjectsState extends State<Projects> {
                                               color: Colors.black,
                                             ),
                                           ),
-                                              if (r.language != null &&
-                                          r.language != 'C++')
-                                        Text('Language: ' + r.language!)
-                                      else if (r.language == 'C++')
-                                        Text('Language : Flutter')
-                                      else
-                                        const Text('')
+                                          if (r.language != null &&
+                                              r.language != 'C++' && r.language != 'Dart')
+                                            Text('Language: ' + r.language!)
+                                          else if (r.language == 'C++' || r.language == 'Dart')
+                                            const Text('Language : Flutter')
+                                          else
+                                            const Text('')
                                         ],
                                       ),
                                     ),
-                                
                                   ],
                                 ),
                               ),
