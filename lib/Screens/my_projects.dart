@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_personal_website/Entity/repo_entity.dart';
+import 'package:my_personal_website/Extentions/responsive.dart';
 import 'package:my_personal_website/Services/repo_services.dart';
 import 'package:url_launcher/link.dart';
 
@@ -61,7 +62,7 @@ class _ProjectsState extends State<Projects> {
                       sliver: SliverGrid.count(
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
-                        crossAxisCount: 5,
+                        crossAxisCount: context.responsive(1,sm: 2,md: 3,lg: 4,xl: 5),
                         children: repos
                             .map(
                               (r) => Card(
@@ -74,14 +75,11 @@ class _ProjectsState extends State<Projects> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    SizedBox(
-                                      height: 100,
-                                      child: Text(
-                                        r.name,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline5,
-                                      ),
+                                    Text(
+                                      r.name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline5,
                                     ),
                                     if (r.description != null)
                                       Padding(
@@ -97,6 +95,7 @@ class _ProjectsState extends State<Projects> {
                                           padding:  EdgeInsets.symmetric(
                                               horizontal: 30),
                                           child: Text('')),
+                                    
                                     SizedBox(
                                       height: 100,
                                       child: Column(
