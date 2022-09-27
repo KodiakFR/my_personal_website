@@ -20,4 +20,4 @@ jobs:
         with:
           workingDir: example
           webRenderer: canvaskit
-          baseHref: /my_personal_website/
+          baseHref: /my_personal_website
