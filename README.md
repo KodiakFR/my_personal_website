@@ -1,6 +1,6 @@
 # my_personal_website
 
-A new Flutter project.
+Personnal website of Maxime Braud
 
 ## Getting Started
 
