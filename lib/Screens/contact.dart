@@ -6,9 +6,28 @@ class Contact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    if (MediaQuery.of(context).size.width < 600) {
+      return Scaffold(
+        body: Center(
+            child: ContactUs(
+          companyName: 'Contact me on',
+          textColor: Colors.white,
+          cardColor: const Color.fromARGB(255, 40, 60, 77),
+          companyColor: Colors.white,
+          taglineColor: Colors.red,
+          email: 'maxime.braud86@gmail.com',
+          emailText: 'Email',
+          linkedinURL: 'https://www.linkedin.com/in/maxime-braud/',
+          githubUserName: 'KodiakFR',
+        )),
+      );
+      
+    }else{
+       return Scaffold(
       body: Center(
-          child: ContactUs(
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/4),
+            child: ContactUs(
         companyName: 'Contact me on',
         textColor: Colors.white,
         cardColor: const Color.fromARGB(255, 40, 60, 77),
@@ -18,7 +37,9 @@ class Contact extends StatelessWidget {
         emailText: 'Email',
         linkedinURL: 'https://www.linkedin.com/in/maxime-braud/',
         githubUserName: 'KodiakFR',
-      )),
+      ),
+          )),
     );
+    }
   }
 }

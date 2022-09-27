@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                         height: 10,
                       ),
                       FittedBox(
-                        child: Text('Welcome in my website',
+                        child: Text('Welcome in my Web-site',
                             style: Theme.of(context).textTheme.headline2,
                             textAlign: TextAlign.center),
                       ),

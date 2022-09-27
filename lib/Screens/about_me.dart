@@ -30,7 +30,7 @@ class AboutMe extends StatelessWidget {
                       padding: EdgeInsets.only(
                           right: 50, left: 50, top: 50, bottom: 20),
                       child: Text(
-                        '"Hello, my name is Maxime Braud. I live in Toulouse, France. I worked for 10 years in the aeronautics sector. I did a professional reconversion to become a developer. I love my new job! This feeling is really important for me. I have been using Flutter since October 2021. I learned this technology myself for a personal project and I really enjoyed it. Now I want to work in this technology in a company to continue to train and learn. You will find on this site all my personal projects. You can write me on LinkedIn or through my Contact page."',
+                        '"Hello, my name is Maxime Braud. I live in Toulouse, France. I worked for 10 years in the aeronautics sector. I did a professional reconversion to become a developer. I love my new job! This feeling is really important for me. I have been using Flutter since October 2021. I have learned this technology myself for a personal project and I really enjoyed it. Now I want to work in this technology in a company to continue to train and learn. You will find on this site all my personal projects. You can write me on LinkedIn or through my Contact page."',
                         style:
                             TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
                         textAlign: TextAlign.justify,
