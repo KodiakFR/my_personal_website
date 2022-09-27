@@ -7,10 +7,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Maxime Braud',
       theme: ThemeData(
         iconTheme: const IconThemeData(color: Colors.white),
