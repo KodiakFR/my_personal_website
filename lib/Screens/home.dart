@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                       ),
                       FittedBox(
                         child: Text(
-                          'Hello I\'m Maxime test ! ',
+                          'Hello I\'m Maxime ! ',
                           style: Theme.of(context).textTheme.headline1,
                           textAlign: TextAlign.center,
                         ),
